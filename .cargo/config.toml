@@ -1,6 +1,6 @@
 [target.thumbv7m-none-eabi]
 
-{% if defmt_format_custom -%}
+{% if defmt && defmt_format_custom -%}
 runner = [
   "probe-rs",
   "run",
