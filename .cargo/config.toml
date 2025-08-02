@@ -1,6 +1,7 @@
 [target.thumbv7m-none-eabi]
 
-{% if defmt && defmt_format_custom -%}
+{% if  defmt_format_custom -%}
+{% if defmt -%}
 runner = [
   "probe-rs",
   "run",
@@ -12,6 +13,9 @@ runner = [
   # "{t} {[{L:bold:5}]%severity} {({c} {f}:{l})%werror}: {s}",
   "{t:magenta} {[{L:bold:5}]%severity} {({c} {f}:{l})%werror}: {s}",
 ] 
+{% else%}
+runner = "probe-rs run --chip {{mcu}}"
+{% endif %}
 {% else%}
 runner = "probe-rs run --chip {{mcu}}"
 {% endif %}
