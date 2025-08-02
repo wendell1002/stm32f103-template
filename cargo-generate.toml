@@ -11,15 +11,15 @@ default = "STM32F103C8"
 [placeholders.panic_crate]
 type = "string"
 prompt = "Which panic crate to target?"
-choices = ["panic_halt", "panic_rtt_target", "panic_semihosting", "panic_probe"]
+choices = ["panic_semihosting", "panic_halt", "panic_rtt_target", "panic_probe"]
 default = "panic_semihosting"
 
-[conditional.'defmt']
+[conditional.'defmt'.placeholders]
 type = "bool"
 prompt = "Enable defmt logging?"
 default = false
 
-[conditional.'defmt_format_custom']
+[conditional.'defmt_format_custom'.placeholders]
 type = "bool"
 prompt = "Enable custom defmt format?"
 default = false
