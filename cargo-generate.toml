@@ -5,8 +5,15 @@ ignore = [".git", ".github", "README.md"]
 [placeholders.mcu]
 type = "string"
 prompt = "Which MCU to target?"
+choices = ["panic_halt", "panic_rtt_target", "panic_semihosting", "panic_probe"]
+default = "panic_semihosting"
+
+[placeholders.panic_crate]
+type = "string"
+prompt = "Which panic crate to target?"
 choices = ["STM32F103C6", "STM32F103C8", "STM32F103RC", "STM32F103RB"]
 default = "STM32F103C8"
+
 
 [conditional.placeholders.defmt]
 type = "bool"

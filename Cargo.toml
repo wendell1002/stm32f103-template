@@ -21,22 +21,33 @@ cortex-m-semihosting = "0.5"
 
 stm32f1xx-hal = { version = "0.10.0", features = ["stm32f103", "rt", "medium"] }
 nb = "1.1.0"
+{% if panic_crate=='panic_halt' -%}
 panic-halt = "1.0.0"
+{% endif %}
+{% if panic_crate=='panic-rtt-target' -%}
 panic-rtt-target = "0.2.0"
 rtt-target = "0.6.1"
+{% endif %}
+{% if panic_crate=='panic_semihosting' -%}
+panic-semihosting = "0.6.0"
+{% endif %}
+
 
 # critical-section = "1.2.0"
 # this lets you use `cargo fix`!
 
-panic-semihosting = "0.6.0"
-
+ 
 
 {% if defmt -%}
 defmt = "1.0.1"
 defmt-rtt = "1.0.0"
-panic-probe = { version = "1.0.0", features = ["print-defmt"] }
+
 defmt-semihosting = "0.3.0"
 {% endif %}
+{% if panic_crate=='panic_probe' -%}
+panic-probe = { version = "1.0.0", features = ["print-defmt"] }
+{% endif %}
+
 
 [[bin]]
 name = "{{ crate_name }}"
