@@ -1,0 +1,19 @@
+[template]
+cargo_generate_version = ">=0.17.4"
+ignore = [".git", ".github", "README.md"]
+
+[placeholders.mcu]
+type = "string"
+prompt = "Which MCU to target?"
+choices = ["STM32F103C6", "STM32F103C8", "STM32F103RC", "STM32F103RB"]
+default = "STM32F103C8"
+
+[conditional.placeholders.defmt]
+type = "bool"
+prompt = "Enable defmt logging?"
+default = false
+
+[conditional.placeholders.defmt_format_custom]
+type = "bool"
+prompt = "Enable custom defmt format?"
+default = false

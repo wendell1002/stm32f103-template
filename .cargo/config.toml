@@ -1,0 +1,33 @@
+[target.thumbv7m-none-eabi]
+
+{% if defmt_format_custom -%}
+runner = [
+  "probe-rs",
+  "run",
+  "--chip",
+  "{{mcu}}",
+  "--log-format",
+  # "{L:bold:5:severity} ({fff:severity}:{l:severity}) {s}",
+  # "{[{L:bold:5}]%severity} {({fff}:{l})%werror} {s}",
+  # "{t} {[{L:bold:5}]%severity} {({c} {f}:{l})%werror}: {s}",
+  "{t:magenta} {[{L:bold:5}]%severity} {({c} {f}:{l})%werror}: {s}",
+] 
+{% else%}
+runner = "probe-rs run --chip {{mcu}}"
+{% endif %}
+
+rustflags = [
+{% if defmt -%}
+    "-C",
+  "linker=flip-link",
+  "-C",
+  "link-arg=-Tdefmt.x",
+{% endif %}
+  # "-C", "linker=arm-none-eabi-gcc",
+  # "-C",
+  # "link-arg=-Wl,-Tlink.x",
+  # "-C", "link-arg=-nostartfiles",
+]
+
+[build]
+target = "thumbv7m-none-eabi"
