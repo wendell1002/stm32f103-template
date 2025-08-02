@@ -3,7 +3,8 @@
 
 use cortex_m_rt::entry;
 use cortex_m_semihosting::hprintln;
-use panic_halt as _;
+use {{panic_crate}} as _;
+
 use stm32f1xx_hal::{
     pac,
     prelude::*,
