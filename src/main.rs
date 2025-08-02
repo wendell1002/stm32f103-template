@@ -26,9 +26,8 @@ fn main() -> ! {
     //冻结系统中所有时钟的配置，并将冻结后的频率值存储在“clocks”中
     let clocks = rcc.cfgr.freeze(&mut flash.acr);
 
-    let mut gpiob = dp.GPIOB.split();
-
-    let mut led = gpiob.pb12.into_push_pull_output(&mut gpiob.crh);
+    let mut gpioc = dp.GPIOC.split();
+    let mut led = gpioc.pc13.into_push_pull_output(&mut gpioc.crh);
 
     //精度 1us
     // let mut delay = FTimerUs::new(dp.TIM2, &clocks).delay();
