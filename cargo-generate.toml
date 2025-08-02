@@ -14,12 +14,12 @@ prompt = "Which panic crate to target?"
 choices = ["panic_halt", "panic_rtt_target", "panic_semihosting", "panic_probe"]
 default = "panic_semihosting"
 
-[conditional.placeholders.defmt]
+[conditional.'defmt']
 type = "bool"
 prompt = "Enable defmt logging?"
 default = false
 
-[conditional.placeholders.defmt_format_custom]
+[conditional.'defmt_format_custom']
 type = "bool"
 prompt = "Enable custom defmt format?"
 default = false
