@@ -36,10 +36,10 @@ fn main() -> ! {
     // or
     let mut delay = dp.TIM2.delay_us(&clocks);
     hprintln!("Hello, world!");
-{% if defmt -%}
+    {% if defmt -%}
     info!("Hello, world!");
     error!("Hello, world!");
-{% endif %}
+    {% endif %}
     loop {
         // 设置高电平
         led.set_high();
