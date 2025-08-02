@@ -1,5 +1,28 @@
+{% if mcu=='STM32F103C6' -%}
+MEMORY
+{
+  FLASH : ORIGIN = 0x08000000, LENGTH = 32K
+  RAM : ORIGIN = 0x20000000, LENGTH = 10K
+}
+{% endif %}
+{% if mcu=='STM32F103C8' -%}
 MEMORY
 {
   FLASH : ORIGIN = 0x08000000, LENGTH = 64K
   RAM : ORIGIN = 0x20000000, LENGTH = 20K
 }
+{% endif %}
+{% if mcu=='STM32F103RC' -%}
+MEMORY
+{
+  FLASH : ORIGIN = 0x08000000, LENGTH = 256K
+  RAM : ORIGIN = 0x20000000, LENGTH = 48K
+}
+{% endif %}
+{% if mcu=='STM32F103RB' -%}
+MEMORY
+{
+  FLASH : ORIGIN = 0x08000000, LENGTH = 128K
+  RAM : ORIGIN = 0x20000000, LENGTH = 20K
+}
+{% endif %}
