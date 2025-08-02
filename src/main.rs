@@ -9,6 +9,10 @@ use stm32f1xx_hal::{
     pac,
     prelude::*,
 };
+{% if defmt -%}
+use defmt::*;
+use defmt_rtt as _;
+{% endif %}
 #[entry]
 fn main() -> ! {
     //初始化和获取外设对象
@@ -33,6 +37,8 @@ fn main() -> ! {
     // or
     let mut delay = dp.TIM2.delay_us(&clocks);
     hprintln!("Hello, world!");
+    info!("Hello, world!");
+    error!("Hello, world!");
     loop {
         // 设置高电平
         led.set_high();

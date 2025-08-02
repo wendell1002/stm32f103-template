@@ -28,6 +28,9 @@ rustflags = [
   # "link-arg=-Wl,-Tlink.x",
   # "-C", "link-arg=-nostartfiles",
 ]
-
+[env]
+{% if defmt -%}
+DEFMT_LOG = "debug"
+{% endif %}
 [build]
 target = "thumbv7m-none-eabi"
