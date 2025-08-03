@@ -2,8 +2,6 @@
 
 > A template for building applications for stm32f103 series microcontrollers
 
-
-
 ## ## Using this template
 
 ```console
