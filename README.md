@@ -2,6 +2,8 @@
 
 > A template for building applications for stm32f103 series microcontrollers
 
+
+baased stm32f1xx-hal  0.10.0
 ## ## Using this template
 
 ```console
